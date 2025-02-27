@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delivery Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            margin: 37px;
+            color: #fff;
+            flex-direction: column; /* Make body a column layout */
+        }
+
+        header {
+            display: flex;
+            justify-content: flex-end; /* Align the link to the right */
+            width: 100%; /* Make header span full width */
+            padding: 10px 20px;
+        }
+
+        header a {
+            color: ghostwhite;  /* white color for the "Home" link */
+            text-decoration: none;  /* Remove underline from link */
+            font-size: 21px;  /* Set font size to 21px */
+        }
+
+        header a:hover {
+            text-decoration: underline;  /* Underline the link on hover */
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: black;
+        }
+
+        label {
+            margin-top: 10px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+
+        input:focus {
+            border-color: #6a11cb;
+            outline: none;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="homepage.html">Home</a>  <!-- Home link on the right -->
+    </header>
+    <main>
+        <form action="login.php" method="POST">
+            <h1>Delivery Details</h1>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required placeholder="1234567890">
+
+            <label for="street">Street:</label>
+            <input type="text" id="street" name="street" required placeholder="Enter your street">
+
+            <label for="district">District:</label>
+            <input type="text" id="district" name="district" required placeholder="Enter your district">
+
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" required placeholder="Enter your state">
+
+            <label for="pincode">Pincode:</label>
+            <input type="text" id="pincode" name="pincode" pattern="[0-9]{6}" required placeholder="123456">
+
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+</body>
+</html>

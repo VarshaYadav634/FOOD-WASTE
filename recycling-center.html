@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycling Center Dashboard</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-image: url('recyclingcenter.avif');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;  /* Space out header content */
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-bottom: 2px solid #4CAF50;
+        }
+        header h1 {
+            margin: 0;
+        }
+        header a {
+            color: green;  /* Green color for the "Home" link */
+            text-decoration: none;  /* Remove underline from link */
+            font-size: 21px;
+        }
+        header a:hover {
+            text-decoration: underline;  /* Underline the link on hover */
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            max-width: 1200px;
+            margin: 20px auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: #4CAF50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+            word-wrap: break-word;
+            min-width: 150px;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: rgba(220, 220, 220, 0.3);
+        }
+        tr:hover {
+            background-color: rgba(200, 200, 200, 0.5);
+        }
+        button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkgreen;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-top: 2px solid #4CAF50;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetchWasteData(); // Call the function on page load
+        });
+
+        function fetchWasteData() { // Ensure the function name matches here
+            fetch("recycling-center.php")
+                .then(response => response.json())
+                .then(data => {
+                    let tableBody = document.getElementById("wasteDataTableBody");
+                    tableBody.innerHTML = ""; // Clear previous data
+                    if (data.length > 0) {
+                        data.forEach(row => {
+                            let tr = document.createElement("tr");
+                            tr.innerHTML = `
+                                <td>${row.business_name}</td>
+                                <td>${row.address}</td>
+                                <td>${row.waste_category}</td>
+                                <td>${row.quantity}</td>
+                            `;
+                            tableBody.appendChild(tr);
+                        });
+                    } else {
+                        tableBody.innerHTML = "<tr><td colspan='4'>No waste collection available.</td></tr>";
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Recycling Center Dashboard</h1>
+        <a href="homepage.html">Home</a>  <!-- Home link on the right -->
+    </header>
+    
+    <main>
+        <h2>Incoming Waste Collection Requests</h2>
+        <table>
+            <tr>
+                <th>Business Name</th>
+                <th>Address</th>
+                <th>Waste Category</th>
+                <th>Quantity (kg)</th>
+            </tr>
+            <tbody id="wasteDataTableBody">
+                <tr>
+                    <td colspan="4">No waste collection available.</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    
+    <footer>
+        <p>© 2024 Waste Collection Initiative | All rights reserved</p>
+    </footer>
+</body>
+</html>

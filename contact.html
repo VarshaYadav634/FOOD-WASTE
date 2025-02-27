@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            color: #333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('./contact_files/Revolutionizing-Operations-Embracing-the-Power-of-External-Call-Center-Support.jpg');
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            padding: 20px;
+            text-align: center;
+            color: black;
+            width: 100%;
+        }
+
+        header a {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: green; /* Green color for the "Home" link */
+            text-decoration: none; /* Remove underline from link */
+            font-size: 21px; /* Set font size */
+            background-color: azure; /* Set background color */
+            padding: 10px 15px; /* Add padding */
+            border-radius: 5px; /* Optional: add rounded corners */
+        }
+
+        header a:hover {
+            text-decoration: underline; /* Underline the link on hover */
+        }
+
+        h2 {
+            text-align: center;
+            margin: 20px 0;
+            color: black;
+        }
+
+        main {
+            display: flex;
+            justify-content: flex-start;
+            max-width: 1200px;
+            width: 100%;
+            margin: 20px auto;
+            padding: 20px;
+            align-items: center;
+        }
+
+        .form-container {
+            width: 500px; /* Fixed width to keep the form on the left */
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.85); /* Slight transparency */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: forestgreen;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            width: 100%;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .form-container {
+                width: 100%; /* Full width on smaller screens */
+                margin: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Home link placed in a header element -->
+    <header>
+        <a href="homepage.html">Home</a>
+        <h1>Contact Us</h1>
+    </header>
+    <main>
+        <div class="form-container">
+            <h2>We'd Love to Hear From You!</h2>
+            <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+                <input type="hidden" name="access_key" value="cfca8f92-4276-4462-b8ef-d0a620e03545">
+
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required="">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required="">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required=""></textarea>
+                </div>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 Waste Collection Initiative | All rights reserved</p>
+    </footer>
+</body>
+</html>

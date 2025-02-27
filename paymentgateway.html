@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional CSS to align the "Home" link at the top-right */
+        header {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        header a {
+            color: green;  /* Green color for the "Home" link */
+            text-decoration: none;  /* Remove underline from link */
+            font-size: 21px;  /* Set font size to 21px */
+            background-color: azure;  /* Set background color to azure */
+            padding: 10px 15px;  /* Add padding to make the background more visible */
+            border-radius: 5px;  /* Optional: add rounded corners */
+        }
+
+        header a:hover {
+            text-decoration: underline;  /* Underline the link on hover */
+        }
+
+        /* Styling for the Confirm button */
+        .confirm-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .confirm-button button {
+            background-color: green;  /* Green background for the button */
+            color: white;  /* White text color */
+            font-size: 16px;  /* Font size */
+            padding: 12px 30px;  /* Padding for button */
+            border: none;  /* Remove border */
+            border-radius: 5px;  /* Rounded corners */
+            cursor: pointer;  /* Pointer cursor on hover */
+        }
+
+        .confirm-button button:hover {
+            background-color: darkgreen;  /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Home link placed in a header element -->
+    <header>
+        <a href="homepage.html">Home</a>
+    </header>
+
+    <div class="container">
+        <h1>Confirm Your Payment</h1>
+
+        <!-- Amount Field -->
+        <div class="amount">
+            <h3>Amount</h3>
+            <div class="input-field">
+                <input type="text" placeholder="Enter amount" id="amount">
+            </div>
+        </div>
+
+        <div class="first-row">
+            <div class="owner">
+                <h3>Owner</h3>
+                <div class="input-field">
+                    <input type="text" id="owner">
+                </div>
+            </div>
+            <div class="cvv">
+                <h3>CVV</h3>
+                <div class="input-field">
+                    <input type="password" id="cvv">
+                </div>
+            </div>
+        </div>
+
+        <div class="second-row">
+            <div class="card-number">
+                <h3>Card Number</h3>
+                <div class="input-field">
+                    <input type="text" id="card-number">
+                </div>
+            </div>
+        </div>
+
+        <div class="third-row">
+            <h3>Expiry Date</h3>
+            <div class="selection">
+                <div class="date">
+                    <select name="months" id="months">
+                        <option value="Jan">Jan</option>
+                        <option value="Feb">Feb</option>
+                        <option value="Mar">Mar</option>
+                        <option value="Apr">Apr</option>
+                        <option value="May">May</option>
+                        <option value="Jun">Jun</option>
+                        <option value="Jul">Jul</option>
+                        <option value="Aug">Aug</option>
+                        <option value="Sep">Sep</option>
+                        <option value="Oct">Oct</option>
+                        <option value="Nov">Nov</option>
+                        <option value="Dec">Dec</option>
+                    </select>
+                    <select name="years" id="years">
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        <option value="2030">2030</option>
+                    </select>
+                </div>
+                <div class="cards">
+                    <img src="mc.png" alt="MasterCard">
+                    <img src="vi.png" alt="Visa">
+                    <img src="pp.png" alt="PayPal">
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Confirm Button -->
+        <div class="confirm-button">
+            <button type="submit" onclick="confirmPayment()">Confirm Payment</button>
+        </div>
+    </div>
+
+    <script>
+        function confirmPayment() {
+            // You can add validation here if needed
+            // For now, simply redirect to success.html after a successful "payment"
+            window.location.href = "success.html";
+        }
+    </script>
+</body>
+</html>

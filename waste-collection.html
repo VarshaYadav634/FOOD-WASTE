@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Collection Form</title>
+    <link rel="stylesheet" href="style1.css">
+    <style>
+        body {
+            background-image: url('wastecollection.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            padding: 20px;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+        }
+        header h1 {
+            color: white;
+            margin: 0;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 21px;
+        }
+        header a:hover {
+            text-decoration: underline;
+        }
+        main {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 40px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: darkgreen;
+        }
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Waste Collection Form</h1>
+        <a href="homepage.html">Home</a>
+    </header>
+    <main>
+        <form action="submit-waste.php" method="POST">
+            <label for="business-name">Business Name:</label>
+            <input type="text" id="business_name" name="business_name" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="waste-category">Waste Category:</label>
+            <select id="waste_category" name="waste_category" required>
+                <option value="fruits-vegetables">Fruits & Vegetables</option>
+                <option value="dairy">Dairy Products</option>
+                <option value="processed">Processed Items</option>
+            </select>
+
+            <label for="quantity">Quantity (kg):</label>
+            <input type="number" id="quantity" name="quantity" required>
+
+            <label for="contact-info">Contact Information:</label>
+            <input type="text" id="contact_info" name="contact_info" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+    <footer>
+        <p>© 2024 Waste Collection Initiative | All rights reserved</p>
+    </footer>
+</body>
+</html>

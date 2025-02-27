@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Add your styling here */
+        header {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        header a {
+            color: green;  /* Green color for the "Home" link */
+            text-decoration: none;  /* Remove underline from link */
+            font-size: 21px;  /* Set font size to 21px */
+            background-color: azure;  /* Set background color to azure */
+            padding: 10px 15px;  /* Add padding to make the background more visible */
+            border-radius: 5px;  /* Optional: add rounded corners */
+        }
+
+        header a:hover {
+            text-decoration: underline;  /* Underline the link on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Home link placed in a header element -->
+    <header>
+        <a href="homepage.html">Home</a>
+    </header>
+
+    <div class="container">
+        <h1>Payment Successful!</h1>
+        <h2>Your Delivery Details:</h2>
+        <p><strong>Name:</strong> <span id="name"></span></p>
+        <p><strong>Phone:</strong> <span id="phone"></span></p>
+        <p><strong>Street:</strong> <span id="street"></span></p>
+        <p><strong>District:</strong> <span id="district"></span></p>
+        <p><strong>State:</strong> <span id="state"></span></p>
+        <p><strong>Pincode:</strong> <span id="pincode"></span></p>
+    </div>
+
+    <script>
+        // Fetch the latest data from success.php and display it
+        fetch('success.php')
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    document.getElementById('name').textContent = data.name || 'N/A';
+                    document.getElementById('phone').textContent = data.phone || 'N/A';
+                    document.getElementById('street').textContent = data.street || 'N/A';
+                    document.getElementById('district').textContent = data.district || 'N/A';
+                    document.getElementById('state').textContent = data.state || 'N/A';
+                    document.getElementById('pincode').textContent = data.pincode || 'N/A';
+                } else {
+                    document.querySelector('.container').innerHTML = '<p>No data found.</p>';
+                }
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
+</body>
+</html>
